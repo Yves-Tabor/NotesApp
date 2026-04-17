@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect  } from 'react';
 import { useNotes } from './useNotes';
 
 export default function AddNote() {
@@ -12,6 +12,11 @@ export default function AddNote() {
       setText('');
     }
   };
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  
+  useEffect(()=>{
+    inputRef.current?.focus();
+  }, []);
 
   return (
     <form className="add-note-form" onSubmit={handleSubmit}>
@@ -19,6 +24,7 @@ export default function AddNote() {
       <textarea
         placeholder="Enter your note here..."
         value={text}
+        ref={inputRef}
         onChange={(e) => setText(e.target.value)}
         required
       />

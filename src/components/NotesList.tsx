@@ -1,11 +1,14 @@
 import { useNotes } from "./useNotes";
 import NoteItem from "./NoteItem";
+import React from "react";
 
 export default function NotesList() {
   const { notes, search } = useNotes();
-  const filtered = notes.filter(note =>
-    note.text.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = React.useMemo(()=>{
+    return notes.filter(note =>
+        note.text.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [notes, search]);
 
   return (
     <div>

@@ -1,15 +1,24 @@
 export type Note = {
-  id: number;
+  id: string;
   text: string;
   important: boolean;
 };
+
+export type State = {
+  notes: Note[];
+};
+
+export type Action =
+  | { type: "ADD_NOTE"; payload: string }
+  | { type: "DELETE_NOTE"; payload: string }
+  | { type: "TOGGLE_IMPORTANT"; payload: string }
 
 export type NotesContextType = {
   notes: Note[];
   search: string;
   addNote: (text: string) => void;
-  deleteNote: (id: number) => void;
-  toggleImportant: (id: number) => void;
+  deleteNote: (id: string) => void;
+  toggleImportant: (id: string) => void;
   setSearch: (value: string) => void;
 };
 

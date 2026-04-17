@@ -2,7 +2,7 @@ import { useNotes } from './useNotes';
 
 interface NoteItemProps {
   note: {
-    id: number;
+    id: string;
     text: string;
     important: boolean;
   };
@@ -10,9 +10,7 @@ interface NoteItemProps {
 
 export default function NoteItem({ note }: NoteItemProps) {
   const { toggleImportant, deleteNote } = useNotes();
-    function handleToggleImportant():void{
-        toggleImportant(note.id);
-    }
+   
   return (
     <div className="note-item">
       <p>{note.text}</p>
