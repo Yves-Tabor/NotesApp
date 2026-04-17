@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import App from '../App'
 import { nanoid } from 'nanoid'
 import type { NotesContextType, Action, State } from '../types';
