@@ -1,22 +1,17 @@
-export interface Note {
-  id: string;
-  title: string;
-  content: string;
-  createdAt: Date;
-  updatedAt: Date;
-  starred: boolean;
-  tags: string[];
-}
+export type Note = {
+  id: number;
+  text: string;
+  important: boolean;
+};
 
-export interface NotesContextType {
+export type NotesContextType = {
   notes: Note[];
-  setNotes: React.Dispatch<React.SetStateAction<Note[]>>;
-  addNote: (note: Omit<Note, 'id' | 'createdAt' | 'updatedAt'>) => void;
-  updateNote: (id: string, updates: Partial<Note>) => void;
-  deleteNote: (id: string) => void;
-  toggleStar: (id: string) => void;
-  searchNotes: (query: string) => Note[];
-}
+  search: string;
+  addNote: (text: string) => void;
+  deleteNote: (id: number) => void;
+  toggleImportant: (id: number) => void;
+  setSearch: (value: string) => void;
+};
 
 export interface NoteItemProps {
   note: Note;

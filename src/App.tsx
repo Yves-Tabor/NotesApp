@@ -1,9 +1,13 @@
-import React from 'react';
+import Header from './components/Header'
+import AddNote from './components/AddNote'
+import NotesList from './components/NotesList'
 
 export default function App(){
   return (
     <div className="app">
-      <h1>Notes App</h1>
+      <Header />
+      <AddNote />
+      <NotesList />
     </div>
   )
 }
